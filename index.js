@@ -66,7 +66,7 @@ function createRock(x) {
    * Now that we have a rock, we'll need to append
    * it to GAME and move it downwards.
    */
-
+  GAME.appendChild(rock);
 
   /**
    * This function moves the rock. (2 pixels at a time
@@ -79,6 +79,9 @@ function createRock(x) {
      * If a rock collides with the DODGER,
      * we should call endGame()
      */
+     
+     rock.style.top = `${top+=2}px`;
+     window.requestAnimationFrame(moveRock);
 
     /**
      * Otherwise, if the rock hasn't reached the bottom of
@@ -92,6 +95,7 @@ function createRock(x) {
   }
 
   // We should kick of the animation of the rock around here
+  window.requestAnimationFrame(moveRock);  
 
   // Add the rock to ROCKS so that we can remove all rocks
   // when there's a collision
@@ -119,6 +123,13 @@ function moveDodger(e) {
    * we've declared for you above.)
    * And be sure to use the functions declared below!
    */
+   
+   if(e.which === LEFT_ARROW){
+     moveDodgerLeft();
+   } else if (e.which === RIGHT_ARROW){
+     moveDodgerRight();
+   }
+   
 }
 
 function moveDodgerLeft() {
@@ -127,6 +138,12 @@ function moveDodgerLeft() {
    * This function should move DODGER to the left
    * (mabye 4 pixels?). Use window.requestAnimationFrame()!
    */
+   var leftNumber = dodger.style.left.replace('px','');
+   var left = parseInt(leftNumber, 10);
+   
+   if(left > 0){
+    dodger.style.left = `${left-4}px`;
+   }
 }
 
 function moveDodgerRight() {
@@ -135,6 +152,12 @@ function moveDodgerRight() {
    * This function should move DODGER to the right
    * (mabye 4 pixels?). Use window.requestAnimationFrame()!
    */
+   var leftNumber = dodger.style.left.replace('px','');
+   var left = parseInt(leftNumber, 10);
+   
+   if(left < 360){
+     dodger.style.left = `${left+4}px`;
+   }
 }
 
 /**
