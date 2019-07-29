@@ -115,7 +115,7 @@ function endGame() {
   clearInterval(gameInterval);
   
   for(var i = 0; i < rocks.length; i++){
-    rocks.remove();
+    rocks[i].remove();
   }
   
 }
