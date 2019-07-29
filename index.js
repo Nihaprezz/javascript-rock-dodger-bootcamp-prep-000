@@ -114,6 +114,8 @@ function createRock(x) {
 function endGame() {
   clearIntervel(gameInterval);
   
+  for(var i = 0; i < )
+  
 }
 
 function moveDodger(e) {
