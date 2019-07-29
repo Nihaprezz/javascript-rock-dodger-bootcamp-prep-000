@@ -114,7 +114,9 @@ function createRock(x) {
 function endGame() {
   clearIntervel(gameInterval);
   
-  for(var i = 0; i < )
+  for(var i = 0; i < rocks.length; i++){
+    
+  }
   
 }
 
